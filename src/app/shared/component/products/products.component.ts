@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Iproduct } from '../../model/products';
 import { ProductService } from '../../service/product.service';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -15,7 +15,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
   isProdActive!: Iproduct;
   constructor(
     private _productService: ProductService,
-    private _router: Router
+    private _router: Router,
+    private _rotutes: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +30,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
         this.isProdActive = s[0];
         this._router.navigate([this.isProdActive.prodId], {
           queryParams: { canReturn: this.isProdActive.canReturn },
+          relativeTo: this._rotutes,
         });
       }
     });

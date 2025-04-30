@@ -2,6 +2,10 @@
   <div class="col-md-4">
     <ul class="list-group">
       <li
+        [ngClass]="{
+          active: userActive == user
+        }"
+        (click)="onuserselect(user)"
         [queryParams]="{ userRole: user.userRole }"
         routerLink="{{ user.userId }}"
         *ngFor="let user of userArr"
