@@ -46,7 +46,7 @@ export class ProductService {
   addprod(obj: Iproduct) {
     this.productArr.push(obj);
     this._snackbar.openSnackbar(`${obj.pName} is added successfully...!!!`);
-    // this._router.navigate(['products']);
+    this._router.navigate(['products']);
   }
   updateprod(obj: Iproduct) {
     let findIndex = this.productArr.findIndex((f) => f.prodId == obj.prodId);
