@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-content>
+    <p>
+      User Name : <strong>{{ userObj.userName }}</strong>
+    </p>
+    <p>
+      User role : <strong>{{ userObj.userRole }}</strong>
+    </p>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions class="d-flex justify-content-between">
+    <button
+      [queryParamsHandling]="'preserve'"
+      routerLink="edit"
+      mat-raised-button
+      color="primary"
+    >
+      Edit
+    </button>
+    <button (click)="onremove(userObj)" mat-raised-button color="accent">Remove</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,23 @@
+<div class="row mt-5">
+  <div class="col-md-4">
+    <ul class="list-group">
+      <li
+        [queryParams]="{ userRole: user.userRole }"
+        routerLink="{{ user.userId }}"
+        *ngFor="let user of userArr"
+        class="list-group-item text-center mb-3"
+        style="cursor: pointer"
+      >
+        {{ user.userName }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="col-md-2">
+    <button routerLink="adduser" mat-raised-button color="primary">
+      Add User
+    </button>
+  </div>
+</div>

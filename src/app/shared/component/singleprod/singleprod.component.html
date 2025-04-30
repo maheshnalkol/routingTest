@@ -1,0 +1,27 @@
+<mat-card *ngIf="prodObj; else nodata">
+  <mat-card-content>
+    <p>
+      Product Name : <strong>{{ prodObj.pName | titlecase }}</strong>
+    </p>
+    <p>
+      Product Status : <strong>{{ prodObj.pStatus | titlecase }}</strong>
+    </p>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions class="d-flex justify-content-between">
+    <button
+      [queryParamsHandling]="'preserve'"
+      routerLink="edit"
+      mat-raised-button
+      color="primary"
+    >
+      Edit
+    </button>
+    <button (click)="onremove(prodObj)" mat-raised-button color="accent">
+      Remove
+    </button>
+  </mat-card-actions>
+</mat-card>
+<ng-template #nodata>
+  <p class="alert alert-info">Product detials are not available...</p>
+</ng-template>
