@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UsersComponent implements OnInit, OnDestroy {
   userId!: string;
-  userArr!: Iuser[];
+  userArr: Iuser[] = [];
   subs!: Subscription;
   userActive!: Iuser;
   constructor(
