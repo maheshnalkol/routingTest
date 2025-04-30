@@ -16,7 +16,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   constructor(
     private _productService: ProductService,
     private _router: Router,
-    private _rotutes: ActivatedRoute
+    private _routes: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -30,7 +30,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
         this.isProdActive = s[0];
         this._router.navigate([this.isProdActive.prodId], {
           queryParams: { canReturn: this.isProdActive.canReturn },
-          relativeTo: this._rotutes,
+          relativeTo: this._routes,
         });
       }
     });
